@@ -5,6 +5,7 @@ import { NotificationModal, SignTransactionsModals, TransactionsToastList } from
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Unlock } from './pages/Unlock';
 import { Nav } from './components/Nav';
+import { TradeForm } from './pages/Trade';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <SignTransactionsModals />
           <Routes>
             <Route path='/unlock' element={<Unlock />} />
+            <Route path='/trade' element={<TradeForm />} />
           </Routes>
       </Router>
   </DappProvider>
