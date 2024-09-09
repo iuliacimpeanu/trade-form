@@ -12,14 +12,14 @@ interface IToken {
     svgUrl: string | undefined
 }
 
-export const SwapSection = ({onFirstTokenSelect, onSecondTokenSelect, firstToken, secondToken, swappedAmount, setSwappedAmount}: {onFirstTokenSelect: (token: IToken) => void, onSecondTokenSelect: (token: IToken) => void, firstToken: IToken | undefined, secondToken: IToken | undefined, swappedAmount: string | undefined, setSwappedAmount: React.Dispatch<React.SetStateAction<string | undefined>>}) => {
+export const SwapSection = (
+    {onFirstTokenSelect, onSecondTokenSelect, firstToken, secondToken, swappedAmount, setSwappedAmount, inputAmount, setInputAmount, inputAmountInDollars, setInputAmountInDollars, swappedAmountInDollars, setSwappedAmountInDollars, resetAmounts}: 
+    {onFirstTokenSelect: (token: IToken) => void, onSecondTokenSelect: (token: IToken) => void, firstToken: IToken | undefined, secondToken: IToken | undefined, swappedAmount: string | undefined, setSwappedAmount: React.Dispatch<React.SetStateAction<string | undefined>>, 
+    inputAmount: string | undefined, setInputAmount: React.Dispatch<React.SetStateAction<string | undefined>>, inputAmountInDollars: string | undefined, setInputAmountInDollars: React.Dispatch<React.SetStateAction<string | undefined>>, 
+    swappedAmountInDollars: string | undefined, setSwappedAmountInDollars: React.Dispatch<React.SetStateAction<string | undefined>>, resetAmounts: () => void}) => {
     
     const { address } = useGetAccount();
     const [tokenOptions, setTokenOptions] = useState<IToken[]>([]);
-    const [inputAmount, setInputAmount] = useState<string>()
-    const [inputAmountInDollars, setInputAmountInDollars] = useState<string>()
-    // const [swappedAmount, setSwappedAmount] = useState<string>()
-    const [swappedAmountInDollars, setSwappedAmountInDollars] = useState<string>()
     const [isFirstDropdownOpen, setIsFirstDropdownOpen] = useState(false)
     const [isSecondDropdownOpen, setIsSecondDropdownOpen] = useState(false)
 
@@ -29,13 +29,6 @@ export const SwapSection = ({onFirstTokenSelect, onSecondTokenSelect, firstToken
 
     const handleSecondDropdownToggle = () => {
         setIsSecondDropdownOpen(!isSecondDropdownOpen)
-    }
-
-    const resetAmounts = () => {
-        setInputAmount('')
-        setInputAmountInDollars('')
-        setSwappedAmount('')
-        setSwappedAmountInDollars('')
     }
 
     const handleFirstTokenSelection = (selectedToken: IToken) => {
@@ -89,7 +82,7 @@ export const SwapSection = ({onFirstTokenSelect, onSecondTokenSelect, firstToken
     useEffect(() => {
         const fetchTokens = async () => {
           try {
-            const tx = await axios.get(`https://devnet-api.multiversx.com/accounts/${address}/tokens?from=1`);
+            const tx = await axios.get(`https://devnet-api.multiversx.com/accounts/${address}/tokens`);
             const options = tx.data.map((option: { ticker: string, balance: string, price: number | undefined, assets?: {svgUrl: string}}) => ({
               ticker: option.ticker,
               balance: option.balance,
@@ -121,8 +114,8 @@ export const SwapSection = ({onFirstTokenSelect, onSecondTokenSelect, firstToken
             handleMaxButton={handleMaxButton}
             zIndex={20}
         />
-        <div id="swap-button" className="absolute w-8 h-8 border-4 border-xExchange-Swap-gray rounded-full bg-neutral-800 cursor-pointer" onClick={swapTokens}>
-        <ArrowUpDown className="text-xExchange-Neutral/400 p-1" />
+        <div id="swap-button" className="absolute w-8 h-8 border-4 border-xExchange-Swap-gray rounded-full bg-xExchange-Swap-bg-gray hover:bg-[#373737] cursor-pointer" onClick={swapTokens}>
+            <ArrowUpDown className="text-xExchange-Neutral/400 p-1" />
         </div>
         <DropdownComponent 
             amount={swappedAmount}
