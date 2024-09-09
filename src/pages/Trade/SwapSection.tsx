@@ -113,6 +113,7 @@ export const SwapSection = (
             maxButton={true}
             handleMaxButton={handleMaxButton}
             zIndex={20}
+            _name="inputAmount"
         />
         <div id="swap-button" className="absolute w-8 h-8 border-4 border-xExchange-Swap-gray rounded-full bg-xExchange-Swap-bg-gray hover:bg-[#373737] cursor-pointer" onClick={swapTokens}>
             <ArrowUpDown className="text-xExchange-Neutral/400 p-1" />
@@ -127,6 +128,7 @@ export const SwapSection = (
             amountInDollars={swappedAmountInDollars}
             maxButton={false}
             zIndex={0}
+            _name="swappedAmount"
         />
     </div>
     )
