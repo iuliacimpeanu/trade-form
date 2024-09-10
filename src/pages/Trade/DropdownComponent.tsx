@@ -113,7 +113,7 @@ export const DropdownComponent = ({ amount, handleAmountChange, handleDropdownTo
                 </div>
             </div>
         
-            <div id="bottom" className="w-[398px] h-6 flex justify-between">
+            <div id="bottom" className="w-[398px] h-6 flex justify-between items-center">
                 {amountInDollars ? (
                     <div className="w-[54px] h-5 font-normal text-xExchange-Neutral/500 text-14-19.6">
                         <span>${amountInDollars}</span>

@@ -2,7 +2,7 @@ import { useGetIsLoggedIn } from "@multiversx/sdk-dapp/hooks";
 import { InfoSection } from "./InfoSection";
 import { SwapSection } from "./SwapSection";
 import { useState } from "react";
-import { Settings } from "lucide-react";
+import { Settings, X } from "lucide-react";
 
 interface IToken {
     ticker: string, 
@@ -74,7 +74,10 @@ export const TradeForm = () => {
                             <div className="text-xExchange-Neutral/400 w-64">
                             You want to swap <span className="text-xExchange-Neutral/200">{inputAmount} {firstToken?.ticker}</span> to <span className="text-xExchange-Neutral/200">{swappedAmount} {secondToken?.ticker}</span> ?
                             </div>
-                            <button className="rounded-xl text-white bg-xExchange-Confirm-blue w-24 p-1" onClick={handleSwapButton}>Swap</button>
+                            <button className="rounded-xl text-white bg-xExchange-Confirm-blue hover:bg-[#3396ff] w-24 p-1" onClick={handleSwapButton}>Swap</button>
+                            <button className="absolute top-1 right-1" onClick={() => setDisplayConfirmation(false)}>
+                                <X className="text-xExchange-Neutral/400 hover:text-xExchange-Neutral/200"/>
+                            </button>
                         </div>
                         }
                     </div>

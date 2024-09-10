@@ -34,9 +34,7 @@ export const InfoSection = ({firstToken, secondToken, swappedAmount, inputAmount
                 <ChevronDown className="w-4 h-4"/>
             </button>
         </div>
-        ) : 
-        
-        (
+        ) : (
         <>
         <div id="up" className="flex w-[398px] h-6 justify-between">
             <div className="flex items-center gap-1">
@@ -53,8 +51,8 @@ export const InfoSection = ({firstToken, secondToken, swappedAmount, inputAmount
 
         <div id="down" className="flex flex-col border-t border-xExchange-Neutral/750 pt-4 gap-2 w-[398px] h-[104px]">
             <div className="flex justify-between h-4 w-[398px] items-center">
-                <div className="w-114 h-4 flex font-normal text-14-16 text-xExchange-Neutral/400 gap-1 rounded-lg">
-                    <span className="w-94 h-4 tracking-1%">Exchange Rate</span>
+                <div className="w-[114px] h-4 flex font-normal text-14-16 text-xExchange-Neutral/400 gap-1 rounded-lg">
+                    <span className="w-[94px] h-4 tracking-1%">Exchange Rate</span>
                     <Info className="w-4 h-4"/>
                 </div>
                 <div className="h-4 font-normal text-14-16 text-xExchange-Neutral/200">
@@ -65,43 +63,50 @@ export const InfoSection = ({firstToken, secondToken, swappedAmount, inputAmount
             </div>
 
             <div className="flex justify-between h-4 w-[398px] items-center">
-                <div className="w-139 h-4 font-normal flex text-14-16 text-xExchange-Neutral/400 gap-1">
+                <div className="w-[139px] h-4 font-normal flex text-14-16 text-xExchange-Neutral/400 gap-1">
                     <span className="w-119 h-4 tracking-1%">Slippage Tolerance</span>
-                    <Info className="w-4 h-4"/>
+                    <div className="relative group">
+                        <span className="absolute w-64 bottom-full hidden group-hover:block bg-xExchange-Neutral/900 text-xExchange-Neutral/200 text-xs text-center px-2 py-2 rounded-lg">
+                            You agree to receive from your swaps up to 1% less than the expected amount.
+                        </span>
+                        <Info className="w-4 h-4"/>
+                    </div>
                 </div>
-                <div className="w-35 h-4 flex items-center gap-2 font-normal text-14-16 text-xExchange-Neutral/200">
-                    <span className="w-15 h-4 tracking-1%">1%</span>
+                <div className="w-[35px] h-4 flex items-center gap-2 font-normal text-14-16 text-xExchange-Neutral/200">
+                    <span className="w-[15px] h-4 tracking-1%">1%</span>
                     <Settings className="w-4 h-4"/>
                 </div>
             </div>
 
             <div className="flex justify-between h-4 w-[398px] items-center">
-                <div className="w-83 h-4 flex font-normal text-14-16 text-xExchange-Neutral/400 gap-1">
+                <div className="w-[83px] h-4 flex font-normal text-14-16 text-xExchange-Neutral/400 gap-1">
                     <span className="w-61 h-4 tracking-1%">Trade Fee</span>
                     <Info className="w-4 h-4"/>
                 </div>
-                <div className="w-70 h-4 flex gap-x-1 items-center">
+                <div className="w-[72px] h-4 flex gap-x-1 items-center">
                     <span className="w-9 h-4 font-normal text-14-16 text-xExchange-Neutral/500">$0.05</span>
-                    <span className="w-30 h-4 font-normal text-14-16 text-xExchange-Neutral/200">0.3%</span>
+                    <span className="w-[30px] h-4 font-normal text-14-16 text-xExchange-Neutral/200">0.3%</span>
                 </div>
             </div>
 
             <div className="flex justify-between h-4 w-[398px] items-center">
-                <div className="w-100 h-4 flex font-normal text-14-16 text-xExchange-Neutral/400 gap-1">
-                    <span className="w-80 h-4 tracking-1%">Price Impact</span>
-                    <Info className="w-4 h-4"/>
+                <div className="w-[100px] h-4 flex items-center font-normal text-14-16 text-xExchange-Neutral/400 gap-1">
+                    <span className="w-[80px] h-4 tracking-1%">Price Impact</span>
+                    <div className="relative group">
+                        <span className="absolute w-64 bottom-full hidden group-hover:block bg-xExchange-Neutral/900 text-xExchange-Neutral/200 text-xs text-center px-2 py-2 rounded-lg">
+                           The difference between the market price and estimated price due to this trade amount.
+                        </span>
+                        <Info className="w-4 h-4"/>
+                    </div>
                 </div>
-                <div className="w-34 h-4">
-                <span className="w-34 h-4 font-normal text-14-16 text-xExchange-Neutral/200">&lt;0.1%</span>
+                <div className="w-[40px] h-4">
+                    <span className="font-normal text-14-16 text-xExchange-Neutral/200 flex items-center">&lt;0.1%</span>
                 </div>
             </div>
         </div>  
         </>
         )
         }
-        
-    </div>
-
-                        
+    </div>                 
     )
 }
