@@ -23,12 +23,12 @@ export const InfoSection = ({firstToken, secondToken, swappedAmount, inputAmount
 
     return (
     
-    <div id="input3" className="w-[446px] h-176 border border-xExchange-Neutral/750 rounded-xl py-4 px-6 flex flex-col gap-4">
+    <div id="input3" className="w-[446px] h-176 border border-xExchange-Neutral/750 rounded-xl py-4 px-6 flex flex-col gap-4 xs:w-[358px]">
 
         { !inputAmount && !swappedAmount ? (<></>) :
 
          collapsed ? (
-        <div className="flex w-[398px] h-6 justify-between items-center text-xExchange-Neutral/400 font-medium text-14-16 opacity-80">
+        <div className="flex w-[398px] h-6 justify-between items-center text-xExchange-Neutral/400 font-medium text-14-16 opacity-80 xs:w-[310px]">
             <span>More details</span>
             <button onClick={toggleCollapse}>
                 <ChevronDown className="w-4 h-4"/>
@@ -36,10 +36,10 @@ export const InfoSection = ({firstToken, secondToken, swappedAmount, inputAmount
         </div>
         ) : (
         <>
-        <div id="up" className="flex w-[398px] h-6 justify-between">
+        <div id="up" className="flex w-[398px] h-6 justify-between xs:w-[310px]">
             <div className="flex items-center gap-1">
-                <span className="text-xExchange-Neutral/400 w-[119px] h-4 opacity-80 font-medium text-14-16 tracking-1%">Minimum received:</span>
-                <div className="flex gap-1 w-[255px] h-4 items-center text-14-16">
+                <span className="text-xExchange-Neutral/400 w-[119px] h-4 opacity-80 font-medium text-14-16 tracking-1% xs:w-30">Minimum received:</span>
+                <div className="flex gap-1 w-[255px] h-4 items-center text-14-16 xs:w-40">
                     <span className="text-xExchange-Neutral/200 ">{(Number(swappedAmount) - (0.01 * Number(swappedAmount))).toFixed(4).toString()}</span>
                     <span className="text-xExchange-Neutral/400">{secondToken?.ticker}</span>
                 </div>
@@ -49,8 +49,8 @@ export const InfoSection = ({firstToken, secondToken, swappedAmount, inputAmount
             </button>
         </div>
 
-        <div id="down" className="flex flex-col border-t border-xExchange-Neutral/750 pt-4 gap-2 w-[398px] h-[104px]">
-            <div className="flex justify-between h-4 w-[398px] items-center">
+        <div id="down" className="flex flex-col border-t border-xExchange-Neutral/750 pt-4 gap-2 w-[398px] h-[104px] xs:w-[310px]">
+            <div className="flex justify-between h-4 w-[398px] items-center xs:w-[310px]">
                 <div className="w-[114px] h-4 flex font-normal text-14-16 text-xExchange-Neutral/400 gap-1 rounded-lg">
                     <span className="w-[94px] h-4 tracking-1%">Exchange Rate</span>
                     <Info className="w-4 h-4"/>
@@ -62,7 +62,7 @@ export const InfoSection = ({firstToken, secondToken, swappedAmount, inputAmount
                 </div>
             </div>
 
-            <div className="flex justify-between h-4 w-[398px] items-center">
+            <div className="flex justify-between h-4 w-[398px] items-center xs:w-[310px]">
                 <div className="w-[139px] h-4 font-normal flex text-14-16 text-xExchange-Neutral/400 gap-1">
                     <span className="w-119 h-4 tracking-1%">Slippage Tolerance</span>
                     <div className="relative group">
@@ -78,7 +78,7 @@ export const InfoSection = ({firstToken, secondToken, swappedAmount, inputAmount
                 </div>
             </div>
 
-            <div className="flex justify-between h-4 w-[398px] items-center">
+            <div className="flex justify-between h-4 w-[398px] items-center xs:w-[310px]">
                 <div className="w-[83px] h-4 flex font-normal text-14-16 text-xExchange-Neutral/400 gap-1">
                     <span className="w-61 h-4 tracking-1%">Trade Fee</span>
                     <Info className="w-4 h-4"/>
@@ -89,9 +89,9 @@ export const InfoSection = ({firstToken, secondToken, swappedAmount, inputAmount
                 </div>
             </div>
 
-            <div className="flex justify-between h-4 w-[398px] items-center">
+            <div className="flex justify-between h-4 w-[398px] items-center xs:w-[310px]">
                 <div className="w-[100px] h-4 flex items-center font-normal text-14-16 text-xExchange-Neutral/400 gap-1">
-                    <span className="w-[80px] h-4 tracking-1%">Price Impact</span>
+                    <span className="w-20 h-4 tracking-1%">Price Impact</span>
                     <div className="relative group">
                         <span className="absolute w-64 bottom-full hidden group-hover:block bg-xExchange-Neutral/900 text-xExchange-Neutral/200 text-xs text-center px-2 py-2 rounded-lg">
                            The difference between the market price and estimated price due to this trade amount.
@@ -99,7 +99,7 @@ export const InfoSection = ({firstToken, secondToken, swappedAmount, inputAmount
                         <Info className="w-4 h-4"/>
                     </div>
                 </div>
-                <div className="w-[40px] h-4">
+                <div className="w-10 h-4">
                     <span className="font-normal text-14-16 text-xExchange-Neutral/200 flex items-center">&lt;0.1%</span>
                 </div>
             </div>

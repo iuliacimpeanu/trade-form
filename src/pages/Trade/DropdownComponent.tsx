@@ -26,9 +26,9 @@ export const DropdownComponent = ({ amount, handleAmountChange, handleDropdownTo
                                 tokenOptions: IToken[], handleTokenSelection: (token: IToken) => void, amountInDollars: string | undefined, maxButton: boolean, handleMaxButton?: () => void, zIndex: number, _name: string}) => {
                     
     return(
-        <div id="input" className="rounded-xl bg-xExchange-Neutral/750 w-[446px] h-[124px] p-6 gap-2">
-        <div id="content-input" className="w-[398px] h-[76px] flex flex-col gap-3">
-            <div id="top" className="w-[398px] h-11 flex justify-between items-center">
+        <div id="input" className="rounded-xl bg-xExchange-Neutral/750 w-[446px] h-[124px] p-6 gap-2 xs:w-[358px]">
+        <div id="content-input" className="w-[398px] h-[76px] flex flex-col gap-3 xs:w-[310px]">
+            <div id="top" className="w-[398px] h-11 flex justify-between items-center xs:w-[310px]">
                 <Formik 
                 initialValues={initialValues}
                 validationSchema={validationSchema}
@@ -58,13 +58,13 @@ export const DropdownComponent = ({ amount, handleAmountChange, handleDropdownTo
                     </Form>
                 )}
                 </Formik>
-                <div id="select" className={`relative bg-xExchange-Neutral/850 border border-xExchange-Neutral/500 hover:bg-[#35353b] w-[129px] h-11 rounded-bl-c99 rounded-tl-c99 rounded-tr-lg rounded-br-lg p-1 cursor-pointer z-${zIndex}`}>
+                <div id="select" className={`relative bg-xExchange-Neutral/850 border border-xExchange-Neutral/500 hover:bg-[#35353b] w-[129px] h-11 rounded-bl-c99 rounded-tl-c99 rounded-tr-lg rounded-br-lg p-1 cursor-pointer z-${zIndex} xs:w-24`}>
                     <button onClick={handleDropdownToggle}>
                         {
                             token ? (
                                 <div className="flex items-center gap-2">
-                                    <img src={token.svgUrl} alt={token.ticker} className="h-8 w-8 rounded-full"/>
-                                    <div className="flex flex-col w-[57px] h-8 font-medium text-sm">
+                                    <img src={token.svgUrl} alt={token.ticker} className="h-8 w-8 rounded-full xs:hidden"/>
+                                    <div className="flex flex-col w-[57px] h-8 font-medium text-sm xs:ml-3 xs:w-12">
                                         <div className=" text-xExchange-Neutral/300 flex items-start">{token.ticker}</div>
                                         {token.price &&
                                             <div className="text-xExchange-Neutral/500 text-14-16 flex">
@@ -84,8 +84,8 @@ export const DropdownComponent = ({ amount, handleAmountChange, handleDropdownTo
                                 </div>
                             ) : (
                                 <div className="flex items-center gap-2">
-                                    <img src={"https://devnet-media.elrond.com/tokens/asset/WEGLD-a28c59/logo.svg"} alt={"EGLD"} className="h-8 w-8 rounded-full"/>
-                                    <div className="w-57 h-6 font-medium text-xExchange-Neutral/300">Select...</div>
+                                    <img src={"https://devnet-media.elrond.com/tokens/asset/WEGLD-a28c59/logo.svg"} alt={"EGLD"} className="h-8 w-8 rounded-full xs:hidden"/>
+                                    <div className="w-57 h-6 font-medium text-xExchange-Neutral/300 xs:ml-3 xs:w-12">Select...</div>
                                     {isDropdownOpen ? (
                                         <ChevronUp className="text-xExchange-Neutral/500 font-normal"/>
                                     ) : (
@@ -96,7 +96,7 @@ export const DropdownComponent = ({ amount, handleAmountChange, handleDropdownTo
                         }
                     </button>
                     {isDropdownOpen && 
-                        <div className="absolute bg-xExchange-Neutral/850 rounded-lg mt-1 flex flex-col gap-2 w-full cursor-pointer z-20">
+                        <div className="absolute bg-xExchange-Neutral/850 rounded-lg mt-1 flex flex-col gap-2 w-full cursor-pointer z-20 xs:w-[140px] xs:mt-5 xs:-right-1">
                             {tokenOptions.map((tokenOption, index) => (
                                 <div
                                 key={index}
@@ -113,7 +113,7 @@ export const DropdownComponent = ({ amount, handleAmountChange, handleDropdownTo
                 </div>
             </div>
         
-            <div id="bottom" className="w-[398px] h-6 flex justify-between items-center">
+            <div id="bottom" className="w-[398px] h-6 flex justify-between items-center xs:w-[310px]">
                 {amountInDollars ? (
                     <div className="w-[54px] h-5 font-normal text-xExchange-Neutral/500 text-14-19.6">
                         <span>${amountInDollars}</span>

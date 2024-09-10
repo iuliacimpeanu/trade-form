@@ -3,6 +3,9 @@ module.exports = {
     content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
     theme: {
       extend: {
+      screens: {
+        'xs': {'max': '535px'},
+      },
       fontFamily: {
           sans: ['"Inter"', 'sans-serif'],
       },
