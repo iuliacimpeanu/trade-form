@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Unlock } from './pages/Unlock';
 import { Nav } from './components/Nav';
 import { TradeForm } from './pages/Trade';
+import { HomePage } from './pages/Home';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <NotificationModal />
           <SignTransactionsModals />
           <Routes>
+            <Route path='/' element={<HomePage />} />
             <Route path='/unlock' element={<Unlock />} />
             <Route path='/trade' element={<TradeForm />} />
           </Routes>
