@@ -58,7 +58,7 @@ export const DropdownComponent = ({ amount, handleAmountChange, handleDropdownTo
                     </Form>
                 )}
                 </Formik>
-                <div id="select" className={`relative bg-xExchange-Neutral/850 border border-xExchange-Neutral/500 hover:bg-[#35353b] w-[129px] h-11 rounded-bl-c99 rounded-tl-c99 rounded-tr-lg rounded-br-lg p-1 cursor-pointer z-${zIndex} xs:w-24 xs:rounded-lg xxs:rounded-lg`}>
+                <div id="select" className={`relative bg-xExchange-Neutral/850 border border-xExchange-Neutral/500 hover:bg-[#35353b] w-[129px] h-11 rounded-l-3xl rounded-r-lg p-1 cursor-pointer z-${zIndex} xs:w-24 xs:rounded-lg xxs:rounded-lg`}>
                     <button onClick={handleDropdownToggle}>
                         {
                             token ? (
