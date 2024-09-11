@@ -26,9 +26,9 @@ export const DropdownComponent = ({ amount, handleAmountChange, handleDropdownTo
                                 tokenOptions: IToken[], handleTokenSelection: (token: IToken) => void, amountInDollars: string | undefined, maxButton: boolean, handleMaxButton?: () => void, zIndex: number, _name: string}) => {
                     
     return(
-        <div id="input" className="rounded-xl bg-xExchange-Neutral/750 w-[446px] h-[124px] p-6 gap-2 xs:w-[358px]">
-        <div id="content-input" className="w-[398px] h-[76px] flex flex-col gap-3 xs:w-[310px]">
-            <div id="top" className="w-[398px] h-11 flex justify-between items-center xs:w-[310px]">
+        <div id="input" className="rounded-xl bg-xExchange-Neutral/750 w-[446px] h-[124px] p-6 gap-2 xs:w-[338px] xxs:w-[282px]">
+        <div id="content-input" className="w-[398px] h-[76px] flex flex-col gap-3 xs:w-[290px] xxs:w-[234px]">
+            <div id="top" className="w-[398px] h-11 flex justify-between items-center xs:w-[290px] xxs:w-[234px]">
                 <Formik 
                 initialValues={initialValues}
                 validationSchema={validationSchema}
@@ -39,7 +39,7 @@ export const DropdownComponent = ({ amount, handleAmountChange, handleDropdownTo
                 {({ errors, touched, handleChange, handleBlur, setFieldValue, setFieldTouched}) => (
                     <Form className="h-8 flex flex-col gap-1">
                         <Field as="input" type="text" name={_name} placeholder="0" 
-                            className="text-xExchange-Neutral/300 font-medium bg-xExchange-Neutral/750 w-32 h-6 text-32-32 tracking-3%" 
+                            className="text-xExchange-Neutral/300 font-medium bg-xExchange-Neutral/750 w-32 h-6 text-32-32 tracking-3% xxs:text-2xl" 
                             value={amount} 
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                 handleChange(e)
@@ -53,18 +53,18 @@ export const DropdownComponent = ({ amount, handleAmountChange, handleDropdownTo
                             readonly={_name === "swappedAmount"}
                         />
                         { _name === "inputAmount" && touched.inputAmount && errors.inputAmount &&
-                            <div className="text-red-600 text-sm h-2">{errors.inputAmount}</div>
+                            <div className="text-red-600 text-sm h-2 xxs:text-xs">{errors.inputAmount}</div>
                         }
                     </Form>
                 )}
                 </Formik>
-                <div id="select" className={`relative bg-xExchange-Neutral/850 border border-xExchange-Neutral/500 hover:bg-[#35353b] w-[129px] h-11 rounded-bl-c99 rounded-tl-c99 rounded-tr-lg rounded-br-lg p-1 cursor-pointer z-${zIndex} xs:w-24`}>
+                <div id="select" className={`relative bg-xExchange-Neutral/850 border border-xExchange-Neutral/500 hover:bg-[#35353b] w-[129px] h-11 rounded-bl-c99 rounded-tl-c99 rounded-tr-lg rounded-br-lg p-1 cursor-pointer z-${zIndex} xs:w-24 xs:rounded-lg xxs:rounded-lg`}>
                     <button onClick={handleDropdownToggle}>
                         {
                             token ? (
                                 <div className="flex items-center gap-2">
-                                    <img src={token.svgUrl} alt={token.ticker} className="h-8 w-8 rounded-full xs:hidden"/>
-                                    <div className="flex flex-col w-[57px] h-8 font-medium text-sm xs:ml-3 xs:w-12">
+                                    <img src={token.svgUrl} alt={token.ticker} className="h-8 w-8 rounded-full xs:hidden xxs:hidden"/>
+                                    <div className="flex flex-col w-[57px] h-8 font-medium text-sm xs:ml-3 xs:w-12 xxs:ml-3">
                                         <div className=" text-xExchange-Neutral/300 flex items-start">{token.ticker}</div>
                                         {token.price &&
                                             <div className="text-xExchange-Neutral/500 text-14-16 flex">
@@ -84,8 +84,8 @@ export const DropdownComponent = ({ amount, handleAmountChange, handleDropdownTo
                                 </div>
                             ) : (
                                 <div className="flex items-center gap-2">
-                                    <img src={"https://devnet-media.elrond.com/tokens/asset/WEGLD-a28c59/logo.svg"} alt={"EGLD"} className="h-8 w-8 rounded-full xs:hidden"/>
-                                    <div className="w-57 h-6 font-medium text-xExchange-Neutral/300 xs:ml-3 xs:w-12">Select...</div>
+                                    <img src={"https://devnet-media.elrond.com/tokens/asset/WEGLD-a28c59/logo.svg"} alt={"EGLD"} className="h-8 w-8 rounded-full xs:hidden xxs:hidden"/>
+                                    <div className="w-57 h-6 font-medium text-xExchange-Neutral/300 xs:ml-3 xs:w-12 xxs:ml-3">Select...</div>
                                     {isDropdownOpen ? (
                                         <ChevronUp className="text-xExchange-Neutral/500 font-normal"/>
                                     ) : (
@@ -96,7 +96,7 @@ export const DropdownComponent = ({ amount, handleAmountChange, handleDropdownTo
                         }
                     </button>
                     {isDropdownOpen && 
-                        <div className="absolute bg-xExchange-Neutral/850 rounded-lg mt-1 flex flex-col gap-2 w-full cursor-pointer z-20 xs:w-[140px] xs:mt-5 xs:-right-1">
+                        <div className="absolute bg-xExchange-Neutral/850 rounded-lg mt-1 flex flex-col gap-2 w-full cursor-pointer z-20 xs:w-[130px] xs:mt-4 xs:-right-1 xxs:w-[110px]">
                             {tokenOptions.map((tokenOption, index) => (
                                 <div
                                 key={index}
@@ -113,7 +113,7 @@ export const DropdownComponent = ({ amount, handleAmountChange, handleDropdownTo
                 </div>
             </div>
         
-            <div id="bottom" className="w-[398px] h-6 flex justify-between items-center xs:w-[310px]">
+            <div id="bottom" className="w-[398px] h-6 flex justify-between items-center xs:w-[290px] xxs:w-[234px]">
                 {amountInDollars ? (
                     <div className="w-[54px] h-5 font-normal text-xExchange-Neutral/500 text-14-19.6">
                         <span>${amountInDollars}</span>

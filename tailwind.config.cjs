@@ -4,7 +4,8 @@ module.exports = {
     theme: {
       extend: {
       screens: {
-        'xs': {'max': '535px'},
+        'xs': {'min': '431px','max': '535px'},
+        'xxs': {'max': '430px'},
       },
       fontFamily: {
           sans: ['"Inter"', 'sans-serif'],
