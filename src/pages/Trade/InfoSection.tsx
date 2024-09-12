@@ -22,20 +22,20 @@ export const InfoSection = ({firstToken, secondToken, swappedAmount, inputAmount
     };
 
     return (
-    
-    <div id="input3" className="w-[446px] h-176 border border-xExchange-Neutral/750 rounded-xl py-4 px-6 flex flex-col gap-4 xs:w-[338px] xxs:w-[282px]">
-
+    <>
         { !inputAmount && !swappedAmount ? (<></>) :
 
-         collapsed ? (
+        collapsed ? (
+        <div id="input3" className="w-[446px] h-176 border border-xExchange-Neutral/750 rounded-xl py-4 px-6 flex flex-col gap-4 xs:w-[338px] xxs:w-[282px]">
         <div className="flex w-[398px] h-6 justify-between items-center text-xExchange-Neutral/400 font-medium text-14-16 opacity-80 xs:w-[290px] xxs:w-[234px]">
             <span>More details</span>
             <button onClick={toggleCollapse}>
                 <ChevronDown className="w-4 h-4"/>
             </button>
         </div>
+        </div>
         ) : (
-        <>
+        <div id="input3" className="w-[446px] h-176 border border-xExchange-Neutral/750 rounded-xl py-4 px-6 flex flex-col gap-4 xs:w-[338px] xxs:w-[282px]">
         <div id="up" className="flex w-[398px] h-6 justify-between xs:w-[290px] xxs:w-[234px]">
             <div className="flex items-center gap-1 xxs:w-[227px]">
                 <span className="text-xExchange-Neutral/400 w-[119px] h-4 opacity-80 font-medium text-14-16 tracking-1% xs:w-30 xxs:text-xs">Minimum received:</span>
@@ -104,9 +104,9 @@ export const InfoSection = ({firstToken, secondToken, swappedAmount, inputAmount
                 </div>
             </div>
         </div>  
-        </>
+        </div>
         )
         }
-    </div>                 
+    </>                 
     )
 }

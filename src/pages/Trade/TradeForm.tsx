@@ -54,7 +54,7 @@ export const TradeForm = () => {
                         <div className="text-32-32 font-medium h-8 w-[78px] tracking-3% xxs:text-2xl">Trade</div>
                         <Settings className="w-8 h-8 bg-xExchange-Neutral/850 p-1.5 rounded-lg xxs:w-7 xxs:h-7"/>
                     </div>
-                    <div id="content" className="relative bg-xExchange-Neutral/850 rounded-2xl p-1 w-[454px] h-[492px] flex flex-col items-center gap-1 xs:w-[346px] xxs:w-[290px]">
+                    <div id="content" className={`relative bg-xExchange-Neutral/850 rounded-2xl p-1 w-[454px] ${!inputAmount && !swappedAmount ? "h-[312px]" : "h-[492px]"} flex flex-col items-center gap-1 xs:w-[346px] xxs:w-[290px]`}>
                         <SwapSection 
                         onFirstTokenSelect={handleFirstTokenSelection} onSecondTokenSelect={handleSecondTokenSelection} firstToken={firstToken} secondToken={secondToken} 
                         swappedAmount={swappedAmount} setSwappedAmount={setSwappedAmount} 
